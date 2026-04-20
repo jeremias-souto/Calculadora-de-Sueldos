@@ -5,25 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Sueldos</title>
     <style>
-        /* Estilos básicos para ocultar y centrar */
+        /* ========================================== */
+        /* 1. TUS ESTILOS GLOBALES Y DE CONTENEDOR    */
+        /* ========================================== */
+        * {
+            text-align: center;
+            color: #222;
+            background-color: #fefefe;
+            font-family: system-ui;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 70vw;
+            margin: 0 auto;
+            border: 2px solid #225599;
+            border-radius: 25px;
+            padding: 20px 0; /* Un poco de aire por dentro */
+        }
+
+        .box {
+            width: 250px;
+            height: 175px;
+        }
+
+        /* Ajuste: borde gris a los inputs para que se vean bien en el fondo blanco */
+        input {
+            width: 150px;
+            text-align: left;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+
+        .calculate-button {
+            margin-top: 25px;
+            padding: 10px 20px;
+            color: #fefefe;
+            font-size: 1.1rem;
+            background-color: #225599;
+            border: 2px solid #225599;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: ease-in-out .25s;
+        }
+
+        .calculate-button:hover {
+            color: #225599;
+            background-color: #fefefe;
+        }
+
+        /* ========================================== */
+        /* 2. ESTILOS DEL LOGIN                       */
+        /* ========================================== */
         #calculator-screen { display: none; }
+        
         .login-container {
             max-width: 300px;
             margin: 50px auto;
             padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
+            border: 2px solid #225599; /* Mismo estilo que el contenedor principal */
+            border-radius: 25px;
             text-align: center;
         }
-        .error-msg { color: red; display: none; margin-top: 10px; font-size: 14px; }
         
-        /* Estilo para el cartel del Total General */
-        #summary-container {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-left: 4px solid #2c3e50;
-            display: none;
+        .error-msg { color: red; display: none; margin-top: 10px; font-size: 14px; }
+
+        /* ========================================== */
+        /* 3. OCULTAMIENTO DE RESULTADOS (Tu petición)*/
+        /* ========================================== */
+        #result, #summary-container {
+            display: none !important;
         }
     </style>
 </head>
@@ -38,7 +91,7 @@
         <input type="password" id="passwordInput">
         
         <br><br>
-        <button id="login-button">Ingresar</button>
+        <button id="login-button" class="calculate-button">Ingresar</button>
         <p id="login-error" class="error-msg">Usuario o contraseña incorrectos</p>
     </div>
 
@@ -62,18 +115,14 @@
 
         <br>
         <p class="option-name">Selecciona tu archivo CSV de la nómina:</p>
-        <input type="file" id="csvFileInput" accept=".csv">
+        <input type="file" id="csvFileInput" accept=".csv" style="width: 250px;">
         
         <br><br>
-        <button id="calculate-button">Calcular y Descargar</button>
-        <br><br>
-        <span id="result" style="font-weight: bold; color: green;"></span>
-
+        <button id="calculate-button" class="calculate-button">Calcular y Descargar</button>
+        
+        <span id="result"></span>
         <div id="summary-container">
-            <h3 style="margin-top: 0; color: #2c3e50;">Resumen de Nómina:</h3>
-            <p style="font-size: 1.2em; margin-bottom: 0;">
-                <strong>Total Bruto a abonar: </strong> $<span id="grand-total-display">0</span>
-            </p>
+            <span id="grand-total-display"></span>
         </div>
     </div>
 
