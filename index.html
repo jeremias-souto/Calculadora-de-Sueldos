@@ -1,45 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Sueldos</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos básicos para ocultar y centrar */
+        #calculator-screen { display: none; }
+        .login-container {
+            max-width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .error-msg { color: red; display: none; margin-top: 10px; font-size: 14px; }
+    </style>
 </head>
-
 <body>
 
-    <h1 class="title">Calculadora de Sueldos</h1>
+    <div id="login-screen" class="login-container">
+        <h2>Acceso Restringido</h2>
+        <p>Usuario:</p>
+        <input type="text" id="usernameInput">
+        
+        <p>Contraseña:</p>
+        <input type="password" id="passwordInput">
+        
+        <br><br>
+        <button id="login-button">Ingresar</button>
+        <p id="login-error" class="error-msg">Usuario o contraseña incorrectos</p>
+    </div>
 
-    <p class="option-name">Precio por hora</p>
-    <input id="pricePerHour" class="option-input" type="number" min="0" value="0">
+    <div id="calculator-screen">
+        <h1 class="title">Calculadora de Sueldos</h1>
+        
+        <p class="option-name">Selecciona tu archivo CSV de origen:</p>
+        <input type="file" id="csvFileInput" accept=".csv">
+        <br><br>
 
-    <p class="option-name">Horas trabajadas</p>
-    <input id="workedHours" class="option-input" type="number" min="0" value="0">
+        <p class="option-name">Precio por hora (normal)</p>
+        <input id="pricePerHour" type="number" min="0" value="0">
 
-    <p class="option-name">Precio por hora extra</p>
-    <input id="pricePerExtraHour" class="option-input" type="number" min="0" value="0">
+        <p class="option-name">Precio por hora extra</p>
+        <input id="pricePerExtraHour" type="number" min="0" value="0">
 
-    <p class="option-name">Horas extras trabajadas</p>
-    <input id="workedExtraHours" class="option-input" type="number" min="0" value="0">
+        <p class="option-name">Porcentaje de sueldo en blanco</p>
+        <input id="percentageWhiteSalary" type="number" min="0" max="100" value="0">
 
-    <p class="option-name">Extra por presencialidad</p>
-    <input id="attendanceExtra" class="option-input" type="number" min="0" value="0">
+        <br><br>
+        <button id="calculate-button">Calcular y Descargar</button>
+        <br><br>
+        <span id="result"></span>
+    </div>
 
-    <p class="option-name">Porcentaje de sueldo en blanco</p>
-    <input id="percentageWhiteSalary" class="option-input" type="number" min="0" max="100" value="0">
-
-    <br><br>
-
-    <button id="calculate-button">Calcular</button>
-
-    <br><br><br>
-
-    <span id="result">Total: -</span>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <script src="script.js"></script>
 
 </body>
-
 </html>
