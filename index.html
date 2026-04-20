@@ -12,31 +12,32 @@
 
     <h1 class="title">Calculadora de Sueldos</h1>
 
-    <p class="option-name">Precio por hora</p>
-    <input id="pricePerHour" class="option-input" type="number" min="0" value="0">
+    <div class="container">
+        <div class="box">
+            <p class="option-name">Precio por hora</p>
+            <input id="pricePerHour" class="option-input" type="number" min="0" value="0">
+            <p class="option-name">Horas trabajadas</p>
+            <input id="workedHours" class="option-input" type="number" min="0" value="0">
+        </div>
+        <div class="box">
+            <p class="option-name">Precio por hora extra</p>
+            <input id="pricePerExtraHour" class="option-input" type="number" min="0" value="0">
+            <p class="option-name">Horas extras trabajadas</p>
+            <input id="workedExtraHours" class="option-input" type="number" min="0" value="0">
+        </div>
+        <div class="box">
+            <p class="option-name">Extra por presencialidad</p>
+            <input id="attendanceExtra" class="option-input" type="number" min="0" value="0">
+            <p class="option-name">Porcentaje de sueldo en blanco</p>
+            <input id="percentageWhiteSalary" class="option-input" type="number" min="0" max="100" value="0">
+        </div>
+    </div>
 
-    <p class="option-name">Horas trabajadas</p>
-    <input id="workedHours" class="option-input" type="number" min="0" value="0">
-
-    <p class="option-name">Precio por hora extra</p>
-    <input id="pricePerExtraHour" class="option-input" type="number" min="0" value="0">
-
-    <p class="option-name">Horas extras trabajadas</p>
-    <input id="workedExtraHours" class="option-input" type="number" min="0" value="0">
-
-    <p class="option-name">Extra por presencialidad</p>
-    <input id="attendanceExtra" class="option-input" type="number" min="0" value="0">
-
-    <p class="option-name">Porcentaje de sueldo en blanco</p>
-    <input id="percentageWhiteSalary" class="option-input" type="number" min="0" max="100" value="0">
+    <button class="calculate-button" id="calculate-button">Calcular</button>
 
     <br><br>
 
-    <button id="calculate-button">Calcular</button>
-
-    <br><br><br>
-
-    <span id="result">Total: -</span>
+    <span class="result" id="result">Total: -</span>
 
     <script src="script.js"></script>
 
